@@ -143,6 +143,63 @@
             background-color: rgba(71, 85, 105, 0.5);
             border-radius: 10px;
         }
+
+        /* Workflow Step Hover Interactive States */
+        .workflow-step[data-color="teal"]:hover .step-badge {
+            background-color: #0D9488;
+            color: #FFFFFF;
+            box-shadow: 0 0 20px rgba(13, 148, 136, 0.6);
+            transform: scale(1.1);
+        }
+        .workflow-step[data-color="teal"]:hover .step-card {
+            border-color: rgba(13, 148, 136, 0.4);
+            background: linear-gradient(145deg, rgba(15, 23, 42, 1), rgba(13, 148, 136, 0.15));
+        }
+        .workflow-step[data-color="teal"]:hover .step-title {
+            color: #2DD4BF;
+        }
+
+        .workflow-step[data-color="indigo"]:hover .step-badge {
+            background-color: #4F46E5;
+            color: #FFFFFF;
+            box-shadow: 0 0 20px rgba(79, 70, 229, 0.6);
+            transform: scale(1.1);
+        }
+        .workflow-step[data-color="indigo"]:hover .step-card {
+            border-color: rgba(79, 70, 229, 0.4);
+            background: linear-gradient(145deg, rgba(15, 23, 42, 1), rgba(79, 70, 229, 0.15));
+        }
+        .workflow-step[data-color="indigo"]:hover .step-title {
+            color: #818CF8;
+        }
+
+        .workflow-step[data-color="amber"]:hover .step-badge {
+            background-color: #D97706;
+            color: #FFFFFF;
+            box-shadow: 0 0 20px rgba(217, 119, 6, 0.6);
+            transform: scale(1.1);
+        }
+        .workflow-step[data-color="amber"]:hover .step-card {
+            border-color: rgba(217, 119, 6, 0.4);
+            background: linear-gradient(145deg, rgba(15, 23, 42, 1), rgba(217, 119, 6, 0.15));
+        }
+        .workflow-step[data-color="amber"]:hover .step-title {
+            color: #FBBF24;
+        }
+
+        .workflow-step[data-color="red"]:hover .step-badge {
+            background-color: #DC2626;
+            color: #FFFFFF;
+            box-shadow: 0 0 20px rgba(220, 38, 38, 0.6);
+            transform: scale(1.1);
+        }
+        .workflow-step[data-color="red"]:hover .step-card {
+            border-color: rgba(220, 38, 38, 0.4);
+            background: linear-gradient(145deg, rgba(15, 23, 42, 1), rgba(220, 38, 38, 0.15));
+        }
+        .workflow-step[data-color="red"]:hover .step-title {
+            color: #F87171;
+        }
     </style>
 </head>
 <body class="font-sans">
@@ -206,31 +263,31 @@
                 <div>
                     <h3 class="text-teal-400 uppercase tracking-widest text-xs font-bold mb-6">Execution Workflow</h3>
                     <div class="space-y-6 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-teal-500 before:via-indigo-500 before:to-amber-500">
-                        <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-                            <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-[#050505] bg-teal-500 text-white shadow-lg shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 text-sm font-bold">1</div>
-                            <div class="w-[calc(100%-3.5rem)] md:w-[calc(50%-2.5rem)] bg-slate-900/40 p-4 rounded-xl border border-teal-500/20 shadow-sm">
-                                <h4 class="text-teal-300 font-bold mb-1 text-sm md:text-base">Synthetic Data Generation</h4>
+                        <div class="workflow-step relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group" data-color="teal">
+                            <div class="step-badge flex items-center justify-center w-10 h-10 rounded-full border-4 border-[#050505] bg-slate-800 text-slate-400 shadow-lg shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 text-sm font-bold transition-all duration-500">1</div>
+                            <div class="step-card w-[calc(100%-3.5rem)] md:w-[calc(50%-2.5rem)] bg-slate-900/40 p-4 rounded-xl border border-slate-800 transition-all duration-500">
+                                <h4 class="step-title text-slate-300 font-bold mb-1 text-sm md:text-base transition-colors duration-500">Synthetic Data Generation</h4>
                                 <p class="text-slate-400 text-xs md:text-sm">Design of complex virtual patient profiles, incorporating masked confounders and colloquial symptom reporting.</p>
                             </div>
                         </div>
-                        <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-                            <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-[#050505] bg-indigo-500 text-white shadow-lg shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 text-sm font-bold">2</div>
-                            <div class="w-[calc(100%-3.5rem)] md:w-[calc(50%-2.5rem)] bg-slate-900/40 p-4 rounded-xl border border-indigo-500/20 shadow-sm">
-                                <h4 class="text-indigo-300 font-bold mb-1 text-sm md:text-base">GenAI Drafting Simulation</h4>
+                        <div class="workflow-step relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group" data-color="indigo">
+                            <div class="step-badge flex items-center justify-center w-10 h-10 rounded-full border-4 border-[#050505] bg-slate-800 text-slate-400 shadow-lg shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 text-sm font-bold transition-all duration-500">2</div>
+                            <div class="step-card w-[calc(100%-3.5rem)] md:w-[calc(50%-2.5rem)] bg-slate-900/40 p-4 rounded-xl border border-slate-800 transition-all duration-500">
+                                <h4 class="step-title text-slate-300 font-bold mb-1 text-sm md:text-base transition-colors duration-500">GenAI Drafting Simulation</h4>
                                 <p class="text-slate-400 text-xs md:text-sm">Feeding raw, unstructured source notes into a GenAI model to produce initial drafts of structured Adverse Event narratives.</p>
                             </div>
                         </div>
-                        <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-                            <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-[#050505] bg-amber-500 text-white shadow-lg shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 text-sm font-bold">3</div>
-                            <div class="w-[calc(100%-3.5rem)] md:w-[calc(50%-2.5rem)] bg-slate-900/40 p-4 rounded-xl border border-amber-500/20 shadow-sm">
-                                <h4 class="text-amber-300 font-bold mb-1 text-sm md:text-base">Taxonomic Audit</h4>
+                        <div class="workflow-step relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group" data-color="amber">
+                            <div class="step-badge flex items-center justify-center w-10 h-10 rounded-full border-4 border-[#050505] bg-slate-800 text-slate-400 shadow-lg shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 text-sm font-bold transition-all duration-500">3</div>
+                            <div class="step-card w-[calc(100%-3.5rem)] md:w-[calc(50%-2.5rem)] bg-slate-900/40 p-4 rounded-xl border border-slate-800 transition-all duration-500">
+                                <h4 class="step-title text-slate-300 font-bold mb-1 text-sm md:text-base transition-colors duration-500">Taxonomic Audit</h4>
                                 <p class="text-slate-400 text-xs md:text-sm">Applying the 3-tier failure mode taxonomy to systematically identify processing errors, elicitation gaps, and mistranslations.</p>
                             </div>
                         </div>
-                        <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
-                            <div class="flex items-center justify-center w-10 h-10 rounded-full border-4 border-[#050505] bg-red-500 text-white shadow-lg shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 text-sm font-bold">4</div>
-                            <div class="w-[calc(100%-3.5rem)] md:w-[calc(50%-2.5rem)] bg-slate-900/40 p-4 rounded-xl border border-red-500/20 shadow-sm">
-                                <h4 class="text-red-400 font-bold mb-1 text-sm md:text-base">Human Countersignature</h4>
+                        <div class="workflow-step relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group" data-color="red">
+                            <div class="step-badge flex items-center justify-center w-10 h-10 rounded-full border-4 border-[#050505] bg-slate-800 text-slate-400 shadow-lg shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10 text-sm font-bold transition-all duration-500">4</div>
+                            <div class="step-card w-[calc(100%-3.5rem)] md:w-[calc(50%-2.5rem)] bg-slate-900/40 p-4 rounded-xl border border-slate-800 transition-all duration-500">
+                                <h4 class="step-title text-slate-300 font-bold mb-1 text-sm md:text-base transition-colors duration-500">Human Countersignature</h4>
                                 <p class="text-slate-400 text-xs md:text-sm">The investigator acts as the final arbiter, correcting architectural omissions and formally signing off.</p>
                             </div>
                         </div>
@@ -336,7 +393,7 @@
             <div class="max-w-5xl mx-auto w-full h-full flex flex-col justify-center relative z-10">
                 <div class="reveal mb-6 md:mb-10 mx-auto">
                     <span class="px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-slate-300 text-xs md:text-sm tracking-[0.2em] uppercase backdrop-blur-md">
-                        An Independent Portfolio Project By Dr. Ratnapriya Thakur (BDS, FAGE)
+                        Clinical Quality Oversight
                     </span>
                 </div>
                 
@@ -725,7 +782,7 @@
                     <span class="absolute bottom-4 right-4 text-4xl text-slate-700/40 font-serif leading-none rotate-180">"</span>
                     
                     <p class="text-slate-300 text-sm md:text-base leading-relaxed relative z-10 italic">
-                        As I stand at the entrance of my professional journey in this specialized field, this project serves as a foundational exercise bridging academic theory and practical industry application. Recognizing that clinical oversight is an evolving discipline, especially with the advent of GenAI in trial systems- thus I actively welcome and appreciate constructive feedback from industry experts to continually refine my understanding of robust quality mechanisms.
+                        As I stand at the entrance of my professional journey in this specialized field, this project serves as a foundational exercise bridging academic theory and practical industry application. Recognizing that clinical oversight is an evolving discipline, especially with the advent of GenAI in trial systems—I actively welcome and appreciate constructive feedback from industry experts to continually refine my understanding of robust quality mechanisms.
                     </p>
                 </div>
 
@@ -830,12 +887,14 @@
             const closeMethodologyBtn = document.getElementById('close-modal');
             const modalBackdrop = document.getElementById('modal-backdrop');
             const modalPanel = document.getElementById('modal-panel');
+            const modalScrollBody = methodologyModal.querySelector('.overflow-y-auto');
 
             function toggleModal(show) {
                 if (show) {
                     methodologyModal.classList.remove('opacity-0', 'pointer-events-none');
                     modalPanel.classList.remove('scale-95');
                     modalPanel.classList.add('scale-100');
+                    if(modalScrollBody) modalScrollBody.scrollTop = 0;
                 } else {
                     methodologyModal.classList.add('opacity-0', 'pointer-events-none');
                     modalPanel.classList.remove('scale-100');
