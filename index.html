@@ -208,7 +208,7 @@
             color: #F87171;
         }
 
-        /* Sandbox Tooltips (Fixed for clipping and mobile tap) */
+        /* Sandbox Tooltips (Responsive Mobile Modal & Desktop Cloud) */
         .err-highlight { 
             transition: all 0.3s ease; 
             border-bottom: 2px solid transparent; 
@@ -219,49 +219,65 @@
         .show-cat2 .cat2-err { background-color: rgba(251, 191, 36, 0.15); color: #FBBF24; border-bottom-color: #FBBF24; }
         .show-cat3 .cat3-err { background-color: rgba(129, 140, 248, 0.15); color: #818CF8; border-bottom-color: #818CF8; }
         
+        /* Mobile-First: Center Pop-up Modal Style (Prevents ANY overflow/clipping) */
         .show-cat1 .cat1-err:hover::after, .show-cat2 .cat2-err:hover::after, .show-cat3 .cat3-err:hover::after,
         .show-cat1 .cat1-err:active::after, .show-cat2 .cat2-err:active::after, .show-cat3 .cat3-err:active::after {
             content: attr(data-tooltip);
-            position: absolute;
-            top: calc(100% + 8px); /* Opens downward */
+            position: fixed;
+            top: 50%;
             left: 50%;
-            transform: translateX(-50%);
+            transform: translate(-50%, -50%);
             background-color: #0F172A;
             color: #F8FAFC;
-            padding: 10px 14px;
-            border-radius: 8px;
-            font-size: 13px;
+            padding: 16px;
+            border-radius: 12px;
+            font-size: 14px;
             font-weight: 500;
             white-space: normal;
-            width: max-content;
-            max-width: 85vw; /* Fluid constraint for mobile */
+            width: 90vw;
+            max-width: 340px;
             text-align: left;
             line-height: 1.5;
-            z-index: 100;
+            z-index: 9999;
             border: 1px solid rgba(255,255,255,0.2);
-            box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.8);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.9), 0 0 0 100vw rgba(0,0,0,0.65); /* Darkens background! */
             pointer-events: none;
         }
 
-        /* Pointer triangle for tooltip */
+        /* Hide pointer triangle on mobile */
         .show-cat1 .cat1-err:hover::before, .show-cat2 .cat2-err:hover::before, .show-cat3 .cat3-err:hover::before,
         .show-cat1 .cat1-err:active::before, .show-cat2 .cat2-err:active::before, .show-cat3 .cat3-err:active::before {
-            content: "";
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            border-width: 0 6px 8px 6px;
-            border-style: solid;
-            border-color: transparent transparent rgba(255,255,255,0.2) transparent;
-            z-index: 101;
-            pointer-events: none;
+            display: none;
         }
 
+        /* Desktop: Classic Floating Cloud (Attached to word) */
         @media (min-width: 768px) {
             .show-cat1 .cat1-err:hover::after, .show-cat2 .cat2-err:hover::after, .show-cat3 .cat3-err:hover::after,
             .show-cat1 .cat1-err:active::after, .show-cat2 .cat2-err:active::after, .show-cat3 .cat3-err:active::after {
+                position: absolute;
+                top: calc(100% + 8px); 
+                left: 50%;
+                transform: translateX(-50%);
+                width: max-content;
                 max-width: 260px; /* Locked desktop width */
+                padding: 10px 14px;
+                border-radius: 8px;
+                font-size: 13px;
+                box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.8);
+            }
+            .show-cat1 .cat1-err:hover::before, .show-cat2 .cat2-err:hover::before, .show-cat3 .cat3-err:hover::before,
+            .show-cat1 .cat1-err:active::before, .show-cat2 .cat2-err:active::before, .show-cat3 .cat3-err:active::before {
+                display: block;
+                content: "";
+                position: absolute;
+                top: 100%;
+                left: 50%;
+                transform: translateX(-50%);
+                border-width: 0 6px 8px 6px;
+                border-style: solid;
+                border-color: transparent transparent rgba(255,255,255,0.2) transparent;
+                z-index: 101;
+                pointer-events: none;
             }
         }
     </style>
